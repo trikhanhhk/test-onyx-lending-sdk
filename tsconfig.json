@@ -1,0 +1,22 @@
+{
+  // This root tsconfig is solely used for IDE support, it is not used for building the project.
+  // See the tsconfig.build.json file for the actual build configuration of each package.
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "skipLibCheck": true, // Important for ambient types (e.g., vite-env.d.ts) to work
+    "types": ["node"],
+    "paths": {
+      "@test-onyx-lending/core": ["./packages/core/src"],
+      "@test-onyx-lending/client": ["./packages/client/src"],
+      "@test-onyx-lending/client/actions": ["./packages/client/src/actions"],
+      "@test-onyx-lending/client/ethers": ["./packages/client/src/ethers"],
+      "@test-onyx-lending/client/privy": ["./packages/client/src/privy"],
+      "@test-onyx-lending/client/test-utils": ["./packages/client/src/test-utils"],
+      "@test-onyx-lending/client/viem": ["./packages/client/src/viem"],
+      "@test-onyx-lending/graphql": ["./packages/graphql/src"],
+      "@test-onyx-lending/types": ["./packages/types/src"]
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["dist", "node_modules", "examples", "templates"]
+}

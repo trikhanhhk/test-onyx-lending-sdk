@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      run-verify:
+        type: boolean
+        description: 'Run verification after release'
+        required: false
+        default: false
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Configure npm auth
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::error::NPM_TOKEN secret is not set. Add it in Settings → Secrets and variables → Actions → New repository secret (Name: NPM_TOKEN, Value: your npm token)"
+            exit 1
+          fi
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          title: '[Release] Candidate'
+          commit: 'chore: bumps package versions'
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  verify:
+    needs: release
+    if: ${{ inputs.run-verify && needs.release.outputs.pullRequestNumber != '' }}
+    uses: ./.github/workflows/verify.yml
+    secrets: inherit
+    with:
+      run-acceptance: true

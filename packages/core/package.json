@@ -1,0 +1,46 @@
+{
+  "name": "@test-onyx-lending/core",
+  "version": "0.0.1",
+  "description": "The shared core across Onyx Lending SDKs.",
+  "repository": {
+    "directory": "packages/core",
+    "type": "git",
+    "url": "git://github.com/trikhanhhk/test-onyx-lending-sdk.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "import": [
+        "./dist/index.d.ts"
+      ],
+      "require": [
+        "./dist/index.d.cts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@test-onyx-lending/types": "workspace:*",
+    "@urql/core": "^5.2.0",
+    "graphql": "^16.11.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.2"
+  },
+  "license": "MIT"
+}

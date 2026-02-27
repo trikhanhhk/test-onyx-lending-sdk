@@ -1,0 +1,103 @@
+{
+  "name": "@test-onyx-lending/react",
+  "version": "0.0.1",
+  "description": "The official React bindings for the Onyx Lending Protocol",
+  "repository": {
+    "directory": "packages/react",
+    "type": "git",
+    "url": "git://github.com/trikhanhhk/test-onyx-lending-sdk.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./ethers": {
+      "import": "./dist/ethers.js",
+      "require": "./dist/ethers.cjs"
+    },
+    "./privy": {
+      "import": "./dist/privy.js",
+      "require": "./dist/privy.cjs"
+    },
+    "./thirdweb": {
+      "import": "./dist/thirdweb.js",
+      "require": "./dist/thirdweb.cjs"
+    },
+    "./viem": {
+      "import": "./dist/viem.js",
+      "require": "./dist/viem.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "ethers": [
+        "./dist/ethers.d.ts"
+      ],
+      "privy": [
+        "./dist/privy.d.ts"
+      ],
+      "thirdweb": [
+        "./dist/thirdweb.d.ts"
+      ],
+      "viem": [
+        "./dist/viem.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@test-onyx-lending/client": "workspace:*",
+    "@test-onyx-lending/graphql": "workspace:*",
+    "@test-onyx-lending/types": "workspace:*",
+    "urql": "^4.2.2"
+  },
+  "devDependencies": {
+    "@privy-io/react-auth": "^2.20.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.1.8",
+    "ethers": "^6.14.4",
+    "happy-dom": "^20.0.11",
+    "msw": "^2.10.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "thirdweb": "^5.105.25",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.2",
+    "viem": "^2.31.6"
+  },
+  "peerDependencies": {
+    "@privy-io/react-auth": "^2.20.0",
+    "@types/react": "^19.1.8",
+    "ethers": "^6.14.4",
+    "react": "^19.1.0",
+    "thirdweb": "^5.105.25",
+    "viem": "^2.31.6"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "ethers": {
+      "optional": true
+    },
+    "@privy-io/react-auth": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
+  },
+  "license": "MIT"
+}

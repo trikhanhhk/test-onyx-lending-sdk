@@ -1,0 +1,17 @@
+{
+  "name": "@test-onyx-lending/spec",
+  "version": "0.0.0",
+  "description": "End-to-end specs for Aave v3 protocol, API, and SDK.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@test-onyx-lending/client": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "viem": "^2.31.6"
+  }
+}

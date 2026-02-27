@@ -1,0 +1,109 @@
+{
+  "name": "@test-onyx-lending/client",
+  "version": "0.0.1",
+  "description": "The official JavaScript client for the Onyx Lending API",
+  "repository": {
+    "directory": "packages/client",
+    "type": "git",
+    "url": "git://github.com/trikhanhhk/test-onyx-lending-sdk.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./actions": {
+      "import": "./dist/actions/index.js",
+      "require": "./dist/actions/index.cjs"
+    },
+    "./ethers": {
+      "import": "./dist/ethers.js",
+      "require": "./dist/ethers.cjs"
+    },
+    "./privy": {
+      "import": "./dist/privy.js",
+      "require": "./dist/privy.cjs"
+    },
+    "./thirdweb": {
+      "import": "./dist/thirdweb.js",
+      "require": "./dist/thirdweb.cjs"
+    },
+    "./viem": {
+      "import": "./dist/viem.js",
+      "require": "./dist/viem.cjs"
+    },
+    "./test-utils": {
+      "import": "./dist/test-utils.js",
+      "require": "./dist/test-utils.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "actions": [
+        "./dist/actions/index.d.ts"
+      ],
+      "ethers": [
+        "./dist/ethers.d.ts"
+      ],
+      "privy": [
+        "./dist/privy.d.ts"
+      ],
+      "thirdweb": [
+        "./dist/thirdweb.d.ts"
+      ],
+      "viem": [
+        "./dist/viem.d.ts"
+      ],
+      "test-utils": [
+        "./dist/test-utils.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@test-onyx-lending/core": "workspace:*",
+    "@test-onyx-lending/graphql": "workspace:*",
+    "@test-onyx-lending/types": "workspace:*",
+    "@privy-io/server-auth": "^1.32.5",
+    "@urql/core": "^5.2.0",
+    "graphql": "^16.11.0"
+  },
+  "devDependencies": {
+    "@bgd-labs/aave-address-book": "^4.25.3",
+    "ethers": "^6.14.4",
+    "thirdweb": "^5.105.25",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.2",
+    "viem": "^2.31.6"
+  },
+  "peerDependencies": {
+    "ethers": "^6.14.4",
+    "thirdweb": "^5.105.25",
+    "viem": "^2.31.6"
+  },
+  "peerDependenciesMeta": {
+    "ethers": {
+      "optional": true
+    },
+    "@privy-io/server-auth": {
+      "optional": true
+    },
+    "thirdweb": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
+  },
+  "license": "MIT"
+}

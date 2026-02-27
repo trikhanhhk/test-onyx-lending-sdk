@@ -1,0 +1,46 @@
+{
+  "name": "@test-onyx-lending/types",
+  "version": "0.0.1",
+  "description": "Core types for the Onyx Lending SDK",
+  "repository": {
+    "directory": "packages/types",
+    "type": "git",
+    "url": "git://github.com/trikhanhhk/test-onyx-lending-sdk.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "import": [
+        "./dist/index.d.ts"
+      ],
+      "require": [
+        "./dist/index.d.cts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "neverthrow": "^8.2.0",
+    "type-fest": "^4.41.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.2"
+  },
+  "license": "MIT"
+}
