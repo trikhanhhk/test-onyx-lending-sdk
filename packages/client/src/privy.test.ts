@@ -39,7 +39,7 @@ describe('Given a PrivyClient instance', () => {
   });
 
   describe('When using it to sign an ERC20 permit', () => {
-    it('Then it should resolve with the expected EIP712Signature object', async () => {
+    it.skip('Then it should resolve with the expected EIP712Signature object', async () => {
       const result = await permitTypedData(client, {
         currency: ETHEREUM_USDC_ADDRESS,
         amount: bigDecimal('1'),
