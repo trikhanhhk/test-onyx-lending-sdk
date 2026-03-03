@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "lib": ["ESNext", "DOM"],
+    "paths": {
+      "@test-onyx-lending/react": ["../packages/react/src"],
+      "@test-onyx-lending/client": ["../packages/client/src"]
+    }
+  },
+  "include": ["src", "../vite-env.d.ts"]
+}
+
